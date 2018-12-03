@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Container(models.Model):
     STATUS_CHOICES = (
         (-3, 'down'),
@@ -11,7 +10,8 @@ class Container(models.Model):
         (2, 'starting'),
         (3, 'restart')
     )
-    container_id = models.CharField(max_length=255)
+
+    container_key = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     status = models.IntegerField(default=-1, choices=STATUS_CHOICES)
     count_restart = models.PositiveIntegerField(default=0)
@@ -20,3 +20,4 @@ class Container(models.Model):
     target_port = models.CharField(max_length=10, default='')
     command = models.CharField(max_length=255, default='')
     endpoint = models.CharField(max_length=255, default='')
+    meta_data = models.TextField(default='')
