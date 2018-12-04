@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'image',
     'cluster',
     'container',
+    'controller',
     'project_docker'
 ]
 
